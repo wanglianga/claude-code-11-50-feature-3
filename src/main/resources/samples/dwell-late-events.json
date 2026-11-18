@@ -1,0 +1,3 @@
+[
+  {"sourceSystem": "GATE", "sourceSeq": 190, "containerNo": "CNU1002", "opPartition": "GATE-NORTH", "eventType": "GATE_RELEASE", "bizTime": "2026-11-28T09:00:00+08:00", "voyageNo": "V2026-11D", "payload": {"direction": "OUT", "gate": "G2", "containerType": "40HQ", "note": "迟到离场事件：此前仅在最后在场证明时刻右删失"}}
+]

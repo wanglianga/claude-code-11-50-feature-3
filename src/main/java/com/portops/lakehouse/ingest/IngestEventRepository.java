@@ -41,4 +41,14 @@ public interface IngestEventRepository extends JpaRepository<IngestEvent, Long> 
     List<IngestEvent> findByCommitIdInOrderByBizTimeAscSourceSystemAscSourceSeqAsc(java.util.Collection<Long> commitIds);
 
     long countByContainerNoAndStatusAndBizTimeLessThanEqual(String containerNo, EventStatus status, OffsetDateTime cutoff);
+
+    /** 全部出现过的箱号（滞留分析的目标总体枚举） */
+    @Query("select distinct e.containerNo from IngestEvent e order by e.containerNo")
+    List<String> findAllContainerNos();
+
+    /** 事件账水位：最大事件 id（滞留分析 run 的作业事件版本标识） */
+    @Query("select coalesce(max(e.id), 0) from IngestEvent e")
+    long maxEventId();
+
+    long countByStatus(EventStatus status);
 }

@@ -50,6 +50,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/commits/conflicts/**").hasAnyRole("DISPATCH", "ADMIN")
                         // 调度视图：调度
                         .requestMatchers("/api/dispatch/**").hasAnyRole("DISPATCH", "ADMIN")
+                        // 滞留分析（管理层/调度）：研究、区间版本、估计与报告
+                        .requestMatchers("/api/dwell/**").hasAnyRole("DISPATCH", "ADMIN")
                         // 清单冻结、修订裁定、对账、结算：结算账号
                         .requestMatchers(HttpMethod.POST, "/api/manifests/**", "/api/revisions/**", "/api/recon/**")
                         .hasAnyRole("SETTLEMENT", "ADMIN")

@@ -88,3 +88,4 @@ coverage.out
 .DS_Store
 Thumbs.db
 Desktop.ini
+_qa_runtime/
